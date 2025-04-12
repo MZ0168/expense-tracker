@@ -25,6 +25,7 @@ with st.form("expense_form"):
     amount = st.number_input("Amount", min_value=0.0)  # Removed format="%.2f"
     category = st.text_input("Category")
     submitted = st.form_submit_button("Add Expense")
+    st.date_input()
     if submitted:
         if category.strip():
             add_expense(st.session_state.expenses, amount, category)
