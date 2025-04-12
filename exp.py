@@ -5,7 +5,7 @@ def add_expense(expenses, amount, category):
 
 def print_expenses(expenses):
     for expense in expenses:
-        st.write(f'Date: {expense["date"]}, f'Amount: ${expense["amount"]}, Category: {expense["category"]}')
+        st.write(f'Date: {expense["date"]}, Amount: ${expense["amount"]}, Category: {expense["category"]}')
 
 def total_expenses(expenses):
     return sum(expense['amount'] for expense in expenses)
