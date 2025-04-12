@@ -1,11 +1,11 @@
 import streamlit as st
 
 def add_expense(expenses, amount, category):
-    expenses.append({'amount': amount, 'category': category})
+    expenses.append({'amount': amount, 'category': category, 'date': date})
 
 def print_expenses(expenses):
     for expense in expenses:
-        st.write(f'Amount: ${expense["amount"]}, Category: {expense["category"]}')
+        st.write(f'Date: {expense["date"]}, f'Amount: ${expense["amount"]}, Category: {expense["category"]}')
 
 def total_expenses(expenses):
     return sum(expense['amount'] for expense in expenses)
@@ -24,8 +24,8 @@ if 'expenses' not in st.session_state:
 with st.form("expense_form"):
     amount = st.number_input("Amount", min_value=0.0)  # Removed format="%.2f"
     category = st.text_input("Category")
+    date = st.date_input("Date")
     submitted = st.form_submit_button("Add Expense")
-    st.date_input()
     if submitted:
         if category.strip():
             add_expense(st.session_state.expenses, amount, category)
