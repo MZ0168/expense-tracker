@@ -44,7 +44,8 @@ else:
 st.subheader("Total Spent")
 st.write(f"${total_expenses(st.session_state.expenses)}")
 st.number_input("Set your Budget")
-
+st.success()
+st.error()
 # Filter by category
 st.subheader("Filter by Category")
 categories = list(set([e['category'] for e in st.session_state.expenses]))
