@@ -25,6 +25,7 @@ with st.form("expense_form"):
     amount = st.number_input("Amount", min_value=0.0)  # Removed format="%.2f"
     category = st.text_input("Category")
     date = st.date_input("Date")
+    st.number_input("Set your Budget", min_value=0.0)
     submitted = st.form_submit_button("Add Expense")
     if submitted:
         if category.strip():
@@ -43,10 +44,17 @@ else:
 # Show total
 st.subheader("Total Spent")
 st.write(f"${total_expenses(st.session_state.expenses)}")
-st.number_input("Set your Budget")
-st.success()
+
+# Budget 
+st.subheader("Budget")
+if budget > 0: 
+    remaining=budget-amount
+    if remaining>=0:
+        st.sucess(f"You are within budget. Remaining: ${remaining}")
+    else:
+        st.error(f"You exceeded the budget by ${abs(remaining)}")
 else:
-st.error()
+    st.info("No budget entered yet.")
 
 # Filter by category
 st.subheader("Filter by Category")
