@@ -43,6 +43,7 @@ else:
 # Show total
 st.subheader("Total Spent")
 st.write(f"${total_expenses(st.session_state.expenses)}")
+st.number_input("Set your Budget")
 
 # Filter by category
 st.subheader("Filter by Category")
